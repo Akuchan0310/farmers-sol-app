@@ -14,7 +14,9 @@ module.exports = {
       },
       colors: {
         bgGreen: '#183C33',
+        bgLight: '#F2EFE7',
         textLight: '#91CD65',
+        textPink: '#FAB79B',
       }
     },
   },

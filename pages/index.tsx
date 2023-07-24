@@ -8,28 +8,31 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main
-      className={`flex flex-col min-h-screen items-center justify-between p-24 bg-bgGreen text-textLight ${inter.className}`}
-    >
-      <div className='fixed top-0'>
+    <div className="bg-bgGreen w-screen text-textLight min-h-screen">
         <Navbar />
-      </div>
-      <section
-        className="text-white h-screen text-center flex m-auto font-waterfall">
-        Home Content
-      </section>
-      <section
-        id="about"
-        className="text-white h-screen text-center flex"
+      <main
+        className={`flex flex-col min-h-screen items-center justify-between ${inter.className}`}
       >
-        <h1 className="m-auto font-waterfall text-7xl text-white font-bold">
-          About
-        </h1>
-      </section>
-      <section>
+        <section
+          className="h-screen text-center flex font-waterfall"
+        >
+          <h1 className="m-auto font-waterfall text-7xl text-textLight font-bold">
+            Home
+          </h1>
+        </section>
+        <section
+          id="about"
+          className="w-full h-screen text-center flex bg-bgLight"
+        >
+          <h1 className="m-auto font-waterfall text-7xl text-textPink font-bold">
+            About
+          </h1>
+        </section>
         <Blog />
+      </main>
+      <section className='bottom-0 bg-bgLight'>
+        <Footer />
       </section>
-      <Footer />
-    </main>
+    </div>
   )
 }

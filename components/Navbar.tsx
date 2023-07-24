@@ -6,7 +6,7 @@ function NavBar() {
     const [navbar, setNavbar] = useState(false);
     return (
         <div>
-            <nav className="w-full bg-black fixed top-0 left-0 right-0 z-10">
+            <nav className="w-full bg-black text-white md:bg-bgLight fixed top-0 left-0 right-0 z-10">
                 <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                     <div>
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -50,22 +50,22 @@ function NavBar() {
                                 }`}
                         >
                             <ul className="h-screen md:h-auto items-center justify-center md:flex ">
-                                <li className="pb-6 text-l text-white py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-textLight border-textLight hover:underline transition duration-4000 md:hover:text-textLight md:hover:bg-transparent">
+                                <li className="text-l md:text-black py-2 md:px-6 text-center border-b-2 md:border-b-0  hover:bg-textLight border-textLight md:hover:underline transition duration-4000 md:hover:text-textLight md:hover:bg-transparent">
                                     <Link href="#about" onClick={() => setNavbar(!navbar)}>
                                         ABOUT
                                     </Link>
                                 </li>
-                                <li className="pb-6 text-l text-white py-2 px-6 text-center border-b-2 md:border-b-0  hover:bg-textLight border-textLight hover:underline transition duration-4000 md:hover:text-textLight md:hover:bg-transparent">
+                                <li className="text-l md:text-black py-2 px-6 text-center border-b-2 md:border-b-0  hover:bg-textLight border-textLight md:hover:underline transition duration-4000 md:hover:text-textLight md:hover:bg-transparent">
                                     <Link href="#blog" onClick={() => setNavbar(!navbar)}>
                                         BLOGS
                                     </Link>
                                 </li>
-                                <li className="pb-6 text-l text-white py-2 px-6 text-center border-b-2 md:border-b-0  hover:bg-textLight border-textLight hover:underline transition duration-4000 md:hover:text-textLight md:hover:bg-transparent">
+                                <li className="text-l md:text-black py-2 px-6 text-center border-b-2 md:border-b-0  hover:bg-textLight border-textLight md:hover:underline transition duration-4000 md:hover:text-textLight md:hover:bg-transparent">
                                     <Link href="/connect" onClick={() => setNavbar(!navbar)}>
                                         CONNECT
                                     </Link>
                                 </li>
-                                <li className="pb-6 text-l text-white py-2 px-6 text-center border-b-2 md:border-b-0  hover:bg-textLight border-textLight hover:underline transition duration-4000 md:hover:text-textLight md:hover:bg-transparent">
+                                <li className="text-l md:text-black py-2 px-6 text-center border-b-2 md:border-b-0  hover:bg-textLight border-textLight md:hover:underline transition duration-4000 md:hover:text-textLight md:hover:bg-transparent">
                                     <Link href="/login" onClick={() => setNavbar(!navbar)}>
                                         LOGIN
                                     </Link>
