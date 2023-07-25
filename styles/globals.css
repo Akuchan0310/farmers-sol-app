@@ -68,6 +68,7 @@ input[type="password"] {
 input[type="submit"] {
   padding: 10px 20px;
   background-color: #333;
+  width: 250px;
   color: #fff;
   border: none;
   border-radius: 20px;
