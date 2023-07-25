@@ -25,12 +25,28 @@ body {
   overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+::-webkit-scrollbar-track {
+  background-color: #EBE7DA;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #879E83;
+  border-radius: 1rem;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
 .form {
   align-items: center;
   justify-content: center;
   display: flexbox;
   flex-direction: column;
   padding: 100px;
+  margin: auto;
+  background-color: #EBE7DA;
+  border-radius: 20px;
 }
 
 form {
@@ -57,7 +73,6 @@ input[type="submit"] {
   border-radius: 20px;
   cursor: pointer;
 }
-
 input[type="submit"]:hover {
   background-color: #555;
 }

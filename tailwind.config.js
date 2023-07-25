@@ -17,6 +17,7 @@ module.exports = {
         bgLight: '#F2EFE7',
         textLight: '#91CD65',
         textPink: '#FAB79B',
+        bgGray: '#EBE7DA'
       }
     },
   },
