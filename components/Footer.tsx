@@ -9,13 +9,14 @@ export default function Footer() {
         <div></div>
       </div>
       <div
-        className="mx-0.5 my-0.5 md:p-20 md:bg-bgGray"
+        className="mx-0.5 my-0.5 md:py-20 md:bg-bgGray"
       >
-        <p className=" hover:text-textPink">About the Team</p>
-        <div className="m-12 flex md:grid md:grid-cols-4">
+        <div className="w-full hover:text-textPink md:border-b border-bgLight">About the Team</div>
+        <div className="m-12 flex justify-between">
           <p>1</p>
           <p>2</p>
           <p>3</p>
+          <p>4</p>
           <p>5</p>
         </div>
       </div>

@@ -7,8 +7,8 @@ export default function Login() {
       className="bg-bgGreen w-screen text-textLight min-h-screen flex flex-col min-h-screen items-center justify-between"
     >
       <nav className="w-full bg-black text-white md:text-black md:bg-bgLight fixed top-0 left-0 right-0 z-10">
-        <ul className="justify-between px-4 py-4 mx-auto lg:max-w-7xl md:items-center md:flex">
-          <li><Link href="/">← Bact to Home</Link></li>
+        <ul className="justify-between px-4 py-6 mx-auto lg:max-w-7xl md:items-center md:flex">
+          <li className=" hover:bg-textLight border-textLight transition duration-4000 md:hover:text-textLight md:hover:bg-transparent"><Link href="/">← Bact to Home</Link></li>
           <li><img className="logo" src="logo.png" alt="logo" /></li>
         </ul>
       </nav>
