@@ -37,4 +37,4 @@ main().catch((error) => {
   process.exitCode = 1;
 });
 
-module.exports = { contract }; // Export contract variable
+module.exports = contract; // Export contract variable
