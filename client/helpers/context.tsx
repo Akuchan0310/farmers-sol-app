@@ -17,7 +17,7 @@ export const SupplyChainProvider = ({ children }: any) => {
         const signer = await provider.getSigner();
 
         const farmerContract = fetchContract(signer);
-        
+
         try {
             const tx = await farmerContract.addFarmer(address);
             await tx.wait();
@@ -35,7 +35,7 @@ export const SupplyChainProvider = ({ children }: any) => {
         const signer = await provider.getSigner();
 
         const RetailerContract = fetchContract(signer);
-        
+
         try {
             const tx = await RetailerContract.addRetailer(address);
             await tx.wait();
@@ -53,7 +53,7 @@ export const SupplyChainProvider = ({ children }: any) => {
         const signer = await provider.getSigner();
 
         const ConsumerContract = fetchContract(signer);
-        
+
         try {
             const tx = await ConsumerContract.addConsumer(address);
             await tx.wait();
@@ -63,4 +63,60 @@ export const SupplyChainProvider = ({ children }: any) => {
             // error toast
         }
     }
+
+    // check if wallet connected
+    const checkWalletConnection = async () => {
+        try {
+            if (!window.ethereum) {
+                console.error('Install Metamask to proceed');
+                return;
+            }
+
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts', });
+            if (accounts.length) {
+                setAccount(accounts[0]);
+            } else {
+                console.log('No accounts found');
+            }
+        } catch (err) {
+            console.log('Error connecting to wallet')
+        }
+    }
+
+    // connect to Metamask function
+    const connectWallet = async (onConnectDo: (address: string) => any) => {
+        try {
+            if (typeof window.ethereum !== 'undefined') {
+                // Request user account access
+                window.ethereum.request({ method: 'eth_requestAccounts' })
+                    .then((accounts: any) => {
+                        console.log(`Connected to wallet @${accounts[0]}`);
+                        onConnectDo(accounts[0]);
+                    })
+                    .catch((error: any) => {
+                        console.error('No account found || Error:', error);
+                    });
+            }
+        } catch (error) {
+            console.log('Error connecting to Metamask | Wallet not fetched');
+        }
+    };
+
+    useEffect(() => { checkWalletConnection(); }
+        , []);
+
+    return (
+        <ContractContext.Provider
+            value={{
+                title,
+                account,
+                addFarmer,
+                addRetailer,
+                addConsumer,
+                connectWallet,
+            }}
+        >
+            {children}
+        </ContractContext.Provider>
+    )
 }
