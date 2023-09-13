@@ -6,7 +6,7 @@ export const fetchContract = (signerOrProvider: ethers.Signer | ethers.Provider)
 
 export const ContractContext = createContext<any>(null);
 
-export const SupplyChainProvider = ({ children }: any) => {
+export const FarmerProvider = ({ children }: any) => {
     const title = 'Mango Supply Chain';
     const [account, setAccount] = useState('');
 
