@@ -72,4 +72,19 @@ export const SupplyChainProvider = ({ children }: any) => {
             console.log(error, "Error updating batch status");
         }
     }
+
+    const discardItem = async (batchId: any) => {
+        const provider = new ethers.JsonRpcProvider();
+        const signer = await provider.getSigner();
+
+        const chainContract = fetchContract(signer);
+        try {
+            const tx = await chainContract.disacardItem(ethers.parseUnits(batchId));
+            await tx.wait();
+            console.log(`Batch ${batchId} has been discarded`);
+            // success toast
+        } catch (error) {
+            console.log(error, "Error discarding item");
+        }
+    }
 }
