@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react';
 import { Contract, ethers } from 'ethers';
 import { addr, abi } from '../../web3/scripts/constants';
 
@@ -120,3 +120,6 @@ export const SupplyChainProvider = ({ children }: any) => {
         </ContractContext.Provider>
     )
 }
+
+
+export const useContractContext = () => useContext(ContractContext);

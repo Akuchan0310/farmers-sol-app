@@ -67,7 +67,7 @@ function NavBar() {
                                 </li>
                                 <li className="text-l md:text-black py-2 px-6 text-center border-b-2 md:border-b-0  hover:bg-textLight border-textLight md:hover:underline transition duration-4000 md:hover:text-textLight md:hover:bg-transparent">
                                     <Link href="/login" onClick={() => setNavbar(!navbar)}>
-                                        LOGIN
+                                        Link Wallet
                                     </Link>
                                 </li>
                             </ul>

@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react';
 import { Contract, ethers } from 'ethers';
 import { addr, abi } from '../../web3/scripts/constants';
 
@@ -87,4 +87,19 @@ export const FarmerProvider = ({ children }: any) => {
             console.log(error, "Error discarding item");
         }
     }
+
+    return (
+        <ContractContext.Provider
+         value={{
+            registerNewBatch,
+            washMangoes,
+            peelNpittMangoes,
+            setForSale,
+            discardItem
+         }}>
+            {children}
+        </ContractContext.Provider>
+    )
 }
+
+export const useContractContext = () => useContext(ContractContext);
