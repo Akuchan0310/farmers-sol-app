@@ -64,6 +64,46 @@ export const SupplyChainProvider = ({ children }: any) => {
         }
     }
 
+    const fetchProductDetails = async (id: number) => {
+        const provider = new ethers.JsonRpcProvider();
+        const signer = await provider.getSigner();
+
+        const ConsumerContract = fetchContract(signer);
+        const product = await ConsumerContract.fetchProductDetails(id);
+
+        const parsedProduct = {
+            uid : product.itemUid,
+            productId : product.productID,
+            breed : product.productBreed,
+            price : product.productPrice,
+            expDate : product.expirationDate,
+            state : product.itemState,
+            distributorId : product.distributorID,
+            retailerId : product.retailerID,
+            consumerId : product.consumerID
+        }
+        
+    }
+
+    const fetchOriginDidi = async (id: number) => {
+        const provider = new ethers.JsonRpcProvider();
+        const signer = await provider.getSigner();
+
+        const ConsumerContract = fetchContract(signer);
+        const didi = await ConsumerContract.fetchOriginDidi(id);
+
+        const parsedProduct = {
+            uid : didi.itemUid,
+            ownerId : didi.ownerID,
+            farmerId : didi.originFarmerID,
+            farmerName : didi.originFarmName,
+            farmInfo : didi.originFarmInformation,
+            farmLatitude : didi.originFarmLatitude,
+            farmLongitude : didi.originFarmLongitude
+        }
+        
+    }
+
     // check if wallet connected
     const checkWalletConnection = async () => {
         try {
@@ -72,7 +112,7 @@ export const SupplyChainProvider = ({ children }: any) => {
                 return;
             }
 
-            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts', });
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts: didi.', });
             if (accounts.length) {
                 setAccount(accounts[0]);
             } else {
