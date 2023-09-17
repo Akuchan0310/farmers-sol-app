@@ -153,6 +153,8 @@ export const SupplyChainProvider = ({ children }: any) => {
                 addFarmer,
                 addRetailer,
                 addConsumer,
+                fetchProductDetails,
+                fetchOriginDidi,
                 connectWallet,
             }}
         >
