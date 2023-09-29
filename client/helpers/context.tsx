@@ -9,11 +9,12 @@ export const ContractContext = createContext<any>(null);
 export const SupplyChainProvider = ({ children }: any) => {
     const title = 'Mango Supply Chain';
     const [account, setAccount] = useState('');
+    
+    const provider = new ethers.JsonRpcProvider()
 
     // Add new farmer
     const addFarmer = async (props: any) => {
         const { address } = props;
-        const provider = new ethers.JsonRpcProvider();
         const signer = await provider.getSigner();
 
         const farmerContract = fetchContract(signer);
@@ -31,7 +32,6 @@ export const SupplyChainProvider = ({ children }: any) => {
     // Add new Retailer
     const addRetailer = async (props: any) => {
         const { address } = props;
-        const provider = new ethers.JsonRpcProvider();
         const signer = await provider.getSigner();
 
         const RetailerContract = fetchContract(signer);
@@ -49,7 +49,6 @@ export const SupplyChainProvider = ({ children }: any) => {
     // Add new Consumer
     const addConsumer = async (props: any) => {
         const { address } = props;
-        const provider = new ethers.JsonRpcProvider();
         const signer = await provider.getSigner();
 
         const ConsumerContract = fetchContract(signer);
@@ -65,7 +64,6 @@ export const SupplyChainProvider = ({ children }: any) => {
     }
 
     const fetchProductDetails = async (id: number) => {
-        const provider = new ethers.JsonRpcProvider();
         const signer = await provider.getSigner();
 
         const ConsumerContract = fetchContract(signer);
@@ -82,17 +80,16 @@ export const SupplyChainProvider = ({ children }: any) => {
             retailerId : product.retailerID,
             consumerId : product.consumerID
         }
-        
+        return parsedProduct;
     }
 
     const fetchOriginDidi = async (id: number) => {
-        const provider = new ethers.JsonRpcProvider();
         const signer = await provider.getSigner();
 
         const ConsumerContract = fetchContract(signer);
         const didi = await ConsumerContract.fetchOriginDidi(id);
 
-        const parsedProduct = {
+        const parsedOriginDidi = {
             uid : didi.itemUid,
             ownerId : didi.ownerID,
             farmerId : didi.originFarmerID,
@@ -101,7 +98,8 @@ export const SupplyChainProvider = ({ children }: any) => {
             farmLatitude : didi.originFarmLatitude,
             farmLongitude : didi.originFarmLongitude
         }
-        
+
+        return parsedOriginDidi;
     }
 
     // check if wallet connected
@@ -112,14 +110,14 @@ export const SupplyChainProvider = ({ children }: any) => {
                 return;
             }
 
-            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts: didi.', });
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts', });
             if (accounts.length) {
                 setAccount(accounts[0]);
             } else {
                 console.log('No accounts found');
             }
         } catch (err) {
-            console.log('Error connecting to wallet')
+            console.log('Error connecting to wallet ', err)
         }
     }
 
@@ -130,7 +128,7 @@ export const SupplyChainProvider = ({ children }: any) => {
                 // Request user account access
                 window.ethereum.request({ method: 'eth_requestAccounts' })
                     .then((accounts: any) => {
-                        console.log(`Connected to wallet @${accounts[0]}`);
+                        console.log(`Connected to wallet @ ${accounts[0]}`);
                         onConnectDo(accounts[0]);
                     })
                     .catch((error: any) => {
