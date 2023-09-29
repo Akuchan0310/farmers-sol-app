@@ -4,9 +4,13 @@ import '@/public/mangoes.jpg';
 import '@/public/greenMangoes.jpg';
 import { Inter } from 'next/font/google'
 
+import { useContractContext } from '@/helpers/context';
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const { title, account, addFarmer, addRetailer, addConsumer, fetchProductDetails, fetchOriginDidi, connectWallet } = useContractContext()
+
   return (
     <div className="bg-bgGreen w-screen text-textLight min-h-screen">
         <Navbar />
@@ -30,6 +34,10 @@ export default function Home() {
         </section>
         <Blog />
       </main>
+
+      <button onClick={addFarmer}>
+        Add farmer
+      </button>
       <section className='bottom-0 bg-bgLight'>
         <Footer />
       </section>
