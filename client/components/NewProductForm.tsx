@@ -1,11 +1,7 @@
-import { FarmerProvider } from '@/context/ConsumerRole';
+import { FarmerProvider, useContractContext } from '@/context/FarmerRole'
 import { useState } from 'react';
 
-interface SupplyChainFormProps {
-    onFormSubmit: (formData: any) => void;
-}
-
-const SupplyChainForm: React.FC<SupplyChainFormProps> = ({ onFormSubmit }) => {
+const SupplyChainForm = () => {
     const [formData, setFormData] = useState({
         // sku: '',
         // upc: '',
@@ -16,10 +12,11 @@ const SupplyChainForm: React.FC<SupplyChainFormProps> = ({ onFormSubmit }) => {
         originFarmLongitude: '',
         breed: '',
     });
+    const { registerNewBatch, washMangoes, peelNpittMangoes, setForSale, discardItem } = useContractContext();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        onFormSubmit(formData);
+        registerNewBatch(formData);
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
