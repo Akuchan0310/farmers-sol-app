@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext, useContext } from 'react';
 import { Contract, ethers } from 'ethers';
-import { addr, abi } from '../../web3/scripts/constants';
+import { addr, abi } from '../../../web3/scripts/constants';
 
 export const fetchContract = (signerOrProvider: ethers.Signer | ethers.Provider) => new ethers.Contract(addr, abi, signerOrProvider);
 

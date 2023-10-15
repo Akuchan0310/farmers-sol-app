@@ -4,7 +4,7 @@ import '@/public/mangoes.jpg';
 import '@/public/greenMangoes.jpg';
 import { Inter } from 'next/font/google'
 
-import { useContractContext } from '@/helpers/context';
+import { useContractContext } from '@/helpers/SupplyChainContext';
 
 const inter = Inter({ subsets: ['latin'] })
 

@@ -2,7 +2,7 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react';
 import { handleChainOrAccChange } from '@/helpers/utils'
-import { SupplyChainProvider } from '@/helpers/context';
+import { SupplyChainProvider } from '@/helpers/SupplyChainContext';
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {

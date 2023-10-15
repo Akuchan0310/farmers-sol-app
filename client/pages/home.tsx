@@ -1,4 +1,4 @@
-import { SupplyChainProvider, useContractContext } from '@/helpers/context';
+import { SupplyChainProvider, useContractContext } from '@/helpers/SupplyChainContext';
 
 export default function Home() {
 
